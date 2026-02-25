@@ -1,0 +1,21 @@
+{
+  "name": "pivotly",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": ["apps/*", "packages/*"],
+  "scripts": {
+    "dev:mobile": "bun run --cwd apps/mobile start",
+    "dev:api": "bun run --cwd apps/api dev",
+    "build": "bun run build:api",
+    "build:api": "bun run --cwd apps/api build",
+    "build:mobile": "bun run --cwd apps/mobile export",
+    "install:all": "bun install"
+  },
+  "devDependencies": {
+    "eslint": "^9.25.0",
+    "eslint-config-expo": "~10.0.0",
+    "eslint-import-resolver-node": "^0.3.9",
+    "eslint-import-resolver-typescript": "^3.6.3",
+    "typescript": "~5.9.2"
+  }
+}

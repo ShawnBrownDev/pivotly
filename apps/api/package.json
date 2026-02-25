@@ -1,0 +1,21 @@
+{
+  "name": "@pivotly/api",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "bun run --hot src/index.ts",
+    "start": "bun run src/index.ts",
+    "build": "bun build src/index.ts --outdir=dist --target=bun"
+  },
+  "dependencies": {
+    "@pivotly/db": "workspace:*",
+    "@pivotly/types": "workspace:*",
+    "@pivotly/utils": "workspace:*",
+    "hono": "^4.6.0"
+  },
+  "devDependencies": {
+    "bun-types": "latest",
+    "typescript": "~5.9.2"
+  }
+}
