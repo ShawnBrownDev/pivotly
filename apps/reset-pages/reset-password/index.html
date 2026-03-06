@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Reset password – Pivotly</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 360px; margin: 2rem auto; padding: 0 1rem; text-align: center; }
+    a { color: #6366f1; }
+    .btn { display: inline-block; margin-top: 1rem; padding: 0.75rem 1.5rem; background: #6366f1; color: white; text-decoration: none; border-radius: 8px; font-weight: 600; }
+  </style>
+</head>
+<body>
+  <h1>Reset password</h1>
+  <p id="msg">Opening the Pivotly app…</p>
+  <a id="openApp" href="#" class="btn" style="display: none;">Open in Pivotly app</a>
+  <script>
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var token = params.get('token');
+      var error = params.get('error');
+      var openLink = document.getElementById('openApp');
+      var msg = document.getElementById('msg');
+
+      if (error) {
+        msg.textContent = 'This link is invalid or has expired. Request a new one from the app.';
+        openLink.style.display = 'none';
+        return;
+      }
+      if (token) {
+        var appUrl = 'pivotly://reset-password?token=' + encodeURIComponent(token);
+        openLink.href = appUrl;
+        openLink.style.display = 'inline-block';
+        openLink.textContent = 'Open in Pivotly app';
+        msg.textContent = 'Tap the button below to set a new password in the app.';
+        window.location.href = appUrl;
+      } else {
+        msg.textContent = 'No reset token in the URL. Use the link from your reset email.';
+      }
+    })();
+  </script>
+</body>
+</html>

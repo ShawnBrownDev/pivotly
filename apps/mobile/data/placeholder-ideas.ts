@@ -3,6 +3,8 @@ import type { IdeaCardData } from '@/components/IdeaCard';
 export const PLACEHOLDER_IDEAS: IdeaCardData[] = [
   {
     id: '1',
+    username: 'sarahchen',
+    timestamp: '2h ago',
     title: 'AI-powered meal planner',
     description: 'Weekly meal plans based on dietary goals, local prices, and minimal waste. Integrates with grocery delivery.',
     validationScore: 78,
@@ -10,9 +12,12 @@ export const PLACEHOLDER_IDEAS: IdeaCardData[] = [
     difficulty: 55,
     upvotes: 24,
     downvotes: 3,
+    comments: 8,
   },
   {
     id: '2',
+    username: 'mike_dev',
+    timestamp: '5h ago',
     title: 'Micro-SaaS for freelancer contracts',
     description: 'Templates, e-sign, and escrow in one place. Focus on non-US markets with local payment rails.',
     validationScore: 85,
@@ -20,9 +25,12 @@ export const PLACEHOLDER_IDEAS: IdeaCardData[] = [
     difficulty: 62,
     upvotes: 41,
     downvotes: 5,
+    comments: 12,
   },
   {
     id: '3',
+    username: 'jess_ideas',
+    timestamp: '1d ago',
     title: 'Neighborhood tool lending app',
     description: 'Book drills, ladders, and gear from neighbors. Revenue from subscriptions and optional insurance.',
     validationScore: 62,
@@ -30,9 +38,12 @@ export const PLACEHOLDER_IDEAS: IdeaCardData[] = [
     difficulty: 70,
     upvotes: 18,
     downvotes: 7,
+    comments: 5,
   },
   {
     id: '4',
+    username: 'alex_founder',
+    timestamp: '2d ago',
     title: 'B2B API for carbon footprint per transaction',
     description: 'Real-time emissions data for e-commerce and logistics. Sell to platforms and enterprises.',
     validationScore: 91,
@@ -40,9 +51,12 @@ export const PLACEHOLDER_IDEAS: IdeaCardData[] = [
     difficulty: 78,
     upvotes: 56,
     downvotes: 2,
+    comments: 19,
   },
   {
     id: '5',
+    username: 'dana_ux',
+    timestamp: '3d ago',
     title: 'Niche job board for remote design roles',
     description: 'Curated listings, salary transparency, and company culture filters. Premium listings and recruiter tools.',
     validationScore: 74,
@@ -50,5 +64,6 @@ export const PLACEHOLDER_IDEAS: IdeaCardData[] = [
     difficulty: 48,
     upvotes: 31,
     downvotes: 4,
+    comments: 4,
   },
 ];

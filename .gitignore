@@ -20,10 +20,10 @@ expo-env.d.ts
 *.p12
 *.key
 *.mobileprovision
-
+*.sql
 # Metro
 .metro-health-check*
-
+*.md
 # debug
 npm-debug.*
 yarn-debug.*
@@ -49,3 +49,5 @@ app-example
 # workspace build outputs
 apps/api/dist
 packages/db/dist
+.vercel
+packages/db/drizzle/0000_clean_dreaming_celestial.sql

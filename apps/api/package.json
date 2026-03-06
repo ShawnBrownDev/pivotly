@@ -12,7 +12,8 @@
     "@pivotly/db": "workspace:*",
     "@pivotly/types": "workspace:*",
     "@pivotly/utils": "workspace:*",
-    "hono": "^4.6.0"
+    "hono": "^4.6.0",
+    "jose": "^6.2.0"
   },
   "devDependencies": {
     "bun-types": "latest",

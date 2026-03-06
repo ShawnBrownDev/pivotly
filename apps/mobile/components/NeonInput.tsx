@@ -8,7 +8,7 @@ import {
   type StyleProp,
   type ViewStyle,
 } from 'react-native';
-import { THEME } from '@/constants/theme';
+import { useAppTheme } from '@/hooks/use-app-theme';
 
 type NeonInputProps = TextInputProps & {
   label?: string;
@@ -26,7 +26,7 @@ export function NeonInput({
   ...inputProps
 }: NeonInputProps) {
   const [focused, setFocused] = useState(false);
-  const t = THEME.dark;
+  const t = useAppTheme();
 
   return (
     <View style={[styles.container, containerStyle]}>
@@ -73,18 +73,19 @@ const styles = StyleSheet.create({
     marginBottom: 6,
   },
   input: {
-    borderWidth: 2,
+    borderWidth: 1.5,
     borderRadius: 12,
     paddingVertical: 14,
     paddingHorizontal: 16,
     fontSize: 16,
   },
   inputFocused: {
-    shadowColor: 'hsl(173, 80%, 50%)',
-    shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.4,
-    shadowRadius: 8,
-    elevation: 4,
+    borderWidth: 2,
+    shadowColor: 'rgba(0,0,0,0.08)',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 1,
+    shadowRadius: 4,
+    elevation: 2,
   },
   error: {
     fontSize: 12,

@@ -1,29 +1,23 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import { Text, StyleSheet, Animated } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import { useRouter } from 'expo-router';
-import { THEME } from '@/constants/theme';
+import { useAppTheme } from '@/hooks/use-app-theme';
 
-const SPLASH_DURATION_MS = 1800;
-
+/**
+ * Presentational splash. Navigation is handled by the parent (index route) based on auth state.
+ */
 export function SplashScreen() {
-  const router = useRouter();
   const fadeAnim = useRef(new Animated.Value(0)).current;
 
-  useEffect(() => {
+  React.useEffect(() => {
     Animated.timing(fadeAnim, {
       toValue: 1,
       duration: 600,
       useNativeDriver: true,
     }).start();
+  }, [fadeAnim]);
 
-    const timeout = setTimeout(() => {
-      router.replace(('/main') as import('expo-router').Href);
-    }, SPLASH_DURATION_MS);
-    return () => clearTimeout(timeout);
-  }, [fadeAnim, router]);
-
-  const t = THEME.dark;
+  const t = useAppTheme();
 
   return (
     <LinearGradient
@@ -35,15 +29,15 @@ export function SplashScreen() {
           styles.logoWrap,
           {
             opacity: fadeAnim,
-            shadowColor: t.neon,
+            shadowColor: t.accent,
             shadowOffset: { width: 0, height: 0 },
-            shadowOpacity: 0.5,
-            shadowRadius: 24,
-            elevation: 8,
+            shadowOpacity: 0.15,
+            shadowRadius: 12,
+            elevation: 6,
           },
         ]}
       >
-        <Text style={[styles.logo, { color: t.neon }]}>Pivotly</Text>
+        <Text style={[styles.logo, { color: t.accent }]}>Pivotly</Text>
       </Animated.View>
       <Animated.Text style={[styles.tagline, { color: t.textSecondary, opacity: fadeAnim }]}>
         Validate your startup idea before you build it

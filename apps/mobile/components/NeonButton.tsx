@@ -8,7 +8,7 @@ import {
   type TextStyle,
   type ViewStyle,
 } from 'react-native';
-import { THEME } from '@/constants/theme';
+import { useAppTheme } from '@/hooks/use-app-theme';
 
 type Variant = 'primary' | 'secondary' | 'ghost';
 
@@ -29,7 +29,7 @@ export function NeonButton({
   disabled,
   ...pressableProps
 }: NeonButtonProps) {
-  const t = THEME.dark;
+  const t = useAppTheme();
 
   return (
     <Pressable
@@ -38,13 +38,13 @@ export function NeonButton({
         fullWidth && styles.fullWidth,
         variant === 'primary' && [
           styles.primary,
-          { backgroundColor: t.surface, borderColor: t.neon },
-          pressed && { opacity: 0.9, borderColor: t.neonGlow },
+          { backgroundColor: t.surface, borderColor: t.accent },
+          pressed && { opacity: 0.92, borderColor: t.accentHover },
         ],
         variant === 'secondary' && [
           styles.secondary,
-          { borderColor: t.neonMuted },
-          pressed && { opacity: 0.9 },
+          { borderColor: t.accentMuted },
+          pressed && { opacity: 0.92 },
         ],
         variant === 'ghost' && [
           styles.ghost,
@@ -59,7 +59,7 @@ export function NeonButton({
       <Text
         style={[
           styles.text,
-          { color: variant === 'ghost' ? t.textSecondary : t.neon },
+          { color: variant === 'ghost' ? t.textSecondary : t.accent },
           textStyle,
         ]}
       >
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
     paddingVertical: 14,
     paddingHorizontal: 24,
     borderRadius: 12,
-    borderWidth: 2,
+    borderWidth: 1.5,
     alignItems: 'center',
     justifyContent: 'center',
   },
